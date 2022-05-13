@@ -1,0 +1,21 @@
+arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - j01
+     - j02
+     - j03
+     - j04
+     - j05  
+     - j06  
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      j01: {trajectory: 0.1, goal: 0.1}
+      j02: {trajectory: 0.1, goal: 0.1}
+      j03: {trajectory: 0.1, goal: 0.1}
+      j04: {trajectory: 0.1, goal: 0.1}
+      j05: {trajectory: 0.1, goal: 0.1}
+      j06: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10

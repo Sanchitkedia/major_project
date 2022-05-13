@@ -1,0 +1,8 @@
+<launch>
+
+  <rosparam file="$(find major_gazebo)/config/trajectory_controller.yaml" command="load"/>
+
+  <!-- load other controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/" args="arm_controller" />
+
+</launch>
