@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="major">
+  <xacro:include filename="$(find major_project)/urdf/links_joints.xacro" />
+	<create/>
+
+  <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
+  <xacro:m_link_mesh name="base_link"
+              origin_rpy="0 0 0" origin_xyz="0 0 0"
+              origin_rpy_I="0 0 0" origin_xyz_I="0.00000006956 0.000001763 0.0571457831331258"
+              mass="1.125"
+              ixx="0.003" ixy="-0.000000002182" ixz="-0.000000003604"
+              iyy="0.003" iyz="-0.0000002052"
+              izz="0.003"
+              meshfile="package://major_project/meshes/base.stl"
+              meshscale="0.0254 0.0254 0.0254" />
+
+  <xacro:m_joint name="j01" type="revolute"
+           axis_xyz="0 0 1"
+           origin_rpy="0 0 0" origin_xyz="0 0 0.108"
+           parent="base_link" child="link01"
+           limit_e="4.6" limit_l="-6.283185307" limit_u="6.283185307" limit_v="0.524" />
+
+  <xacro:m_link_mesh name="link01"
+              origin_rpy="0 0 0" origin_xyz="0 0 0"
+              origin_rpy_I="0 0 0" origin_xyz_I="0.0000003253 -0.0071769588574323 0.0880824299338031"
+              mass="3.128"
+              ixx="0.01" ixy="-0.000000009085" ixz="-0.00000003761"
+              iyy="0.005" iyz="-0.00007510"
+              izz="0.009"
+              meshfile="package://major_project/meshes/L1.stl"
+              meshscale="0.0254 0.0254 0.0254" />
+
+  <xacro:m_joint name="j02" type="revolute"
+           axis_xyz="0 1 0"
+           origin_rpy="0 0 0" origin_xyz="0 -0.077 0.091"
+           parent="link01" child="link02"
+           limit_e="30" limit_l="-6.283185307" limit_u="6.283185307" limit_v="0.524" />
+
+  <xacro:m_link_mesh name="link02"
+              origin_rpy="0 0 0" origin_xyz="0 0 0"
+              origin_rpy_I="0 0 0" origin_xyz_I="-0.00000001292 -0.0681708395054807 0.1412776907479262"
+              mass="1.057"
+              ixx="0.005" ixy="0.0000000003867" ixz="0.000000003117"
+              iyy="0.004" iyz="0.0004763"
+              izz="0.001"
+              meshfile="package://major_project/meshes/L2.stl"
+              meshscale="0.0254 0.0254 0.0254" />
+
+  <xacro:m_joint name="j03" type="revolute"
+           axis_xyz="0 1 0"
+           origin_rpy="0 0 0" origin_xyz="0 -0.025 0.17"
+           parent="link02" child="link03"
+           limit_e="8.2" limit_l="-6.283185307" limit_u="6.283185307" limit_v="0.524" />
+
+  <xacro:m_link_mesh name="link03"
+              origin_rpy="0 0 0" origin_xyz="0 0 0"
+              origin_rpy_I="0 0 0" origin_xyz_I="0.014302060949178 0.0457204972120587 -0.000003751"
+              mass="0.575"
+              ixx="0.0003184" ixy="-0.00001057" ixz="-0.0000001209"
+              iyy="0.0004816" iyz="0.00000001809"
+              izz="0.0004997"
+              meshfile="package://major_project/meshes/L3.stl"
+              meshscale="0.0254 0.0254 0.0254" />
+
+  <xacro:m_joint name="j04" type="revolute"
+           axis_xyz="1 0 0"
+           origin_rpy="0 0 0" origin_xyz="0.046 0.047 0"
+           parent="link03" child="link04"
+           limit_e="1.0" limit_l="-6.283185307" limit_u="6.283185307" limit_v="0.524" />
+
+  <xacro:m_link_mesh name="link04"
+              origin_rpy="0 0 0" origin_xyz="0 0 0"
+              origin_rpy_I="0 0 0" origin_xyz_I="0.1285235708972777 -0.0002318 0.0000009316 "
+              mass="0.944"
+              ixx="0.001" ixy="-0.000002561" ixz="-0.00000004394"
+              iyy="0.001" iyz="0.00000006085"
+              izz="0.002"
+              meshfile="package://major_project/meshes/L4.stl"
+              meshscale="0.0254 0.0254 0.0254" />
+
+  <xacro:m_joint name="j05" type="revolute"
+           axis_xyz="0 1 0"
+           origin_rpy="0 0 0" origin_xyz="0.14 0.046 0"
+           parent="link04" child="link05"
+           limit_e="4.6" limit_l="-6.283185307" limit_u="6.283185307" limit_v="0.524" />
+
+  <xacro:m_link_mesh name="link05"
+              origin_rpy="0 0 0" origin_xyz="0 0 0"
+              origin_rpy_I="0 0 0" origin_xyz_I="0.000007270 0.0452851526908512 -0.016426322544385"
+              mass="0.43"
+              ixx="0.0003708" ixy="0.000000006918" ixz="-0.00000001392"
+              iyy="0.0003530" iyz="0.00001212"
+              izz="0.0002506"
+              meshfile="package://major_project/meshes/L5.stl"
+              meshscale="0.0254 0.0254 0.0254" />
+
+  <xacro:m_joint name="j06" type="revolute"
+           axis_xyz="0 0 1"
+           origin_rpy="0 0 0" origin_xyz="0 0.047 -0.047"
+           parent="link05" child="link06"
+           limit_e="0.22" limit_l="-6.283185307" limit_u="6.283185307" limit_v="0.524" />
+
+  <xacro:m_link_mesh name="link06"
+              origin_rpy="0 0 0" origin_xyz="0 0 0"
+              origin_rpy_I="0 0 0" origin_xyz_I="0 0 0"
+              mass="0.383"
+              ixx="0.001" ixy="0.0000001930" ixz="-0.0001128"
+              iyy="0.002" iyz="0.0000006562"
+              izz="0.0001336"
+              meshfile="package://major_project/meshes/end.stl"
+              meshscale="1 1 1" />
+  <gazebo>	
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+     <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+		</plugin>
+  </gazebo>
+
+</robot>
+
